@@ -1,0 +1,23 @@
+{
+  "name": "demo_cypress",
+  "version": "1.0.0",
+  "description": "Demo cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-vy:Thanh96/demo_cypress.git"
+  },
+  "author": "Thanh",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.9.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-cypress": "^2.11.2"
+  },
+  "dependencies": {}
+}

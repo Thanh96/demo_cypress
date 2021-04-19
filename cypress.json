@@ -1,0 +1,8 @@
+{
+  "defaultCommandTimeout": 30000,
+  "baseUrl": "https://staging.symple.co.uk/",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "failOnStatusCode": false
+}

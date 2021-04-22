@@ -1,9 +1,9 @@
 {
   "account": {
-    "admin": {
-      "email": "raz@trezlabs.com",
-      "password": "dalejodc2",
-      "name": "Raz Weizman"
+    "client": {
+      "email": "maria.repollo+robinsons.yap@example.com",
+      "password": "password",
+      "name": "Robinsons Yap"
     }
 
   }

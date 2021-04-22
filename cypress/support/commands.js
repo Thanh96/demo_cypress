@@ -24,13 +24,29 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("forceVisit", (url) => {
-  cy.get("body").then((body$) => {
+Cypress.Commands.add('forceVisit', (url) => {
+  cy.get('body').then((body$) => {
     const appWindow = body$[0].ownerDocument.defaultView;
-    const appIframe = appWindow.parent.document.querySelector("iframe");
+    const appIframe = appWindow.parent.document.querySelector('iframe' );
     return new Promise((resolve) => {
       appIframe.onload = () => resolve();
       appWindow.location = url;
     });
   });
 });
+
+Cypress.Commands.add('getToken', (email, pass) => 
+  cy.request({
+    method: 'POST',
+    url: 'api/ionic_authentication/sign_in',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'x-api-key': Cypress.env('x-api-key'),
+      'x-bypass-authentication': Cypress.env('x-bypass-authentication'),
+    },
+    body: {
+      email: email,
+      password: pass,
+    },
+  })
+);

@@ -1,6 +1,6 @@
 {
   "defaultCommandTimeout": 30000,
-  "baseUrl": "https://staging.symple.co.uk/",
+  "baseUrl": "https://uat.containers.staging-mable.com.au/",
   "chromeWebSecurity": false,
   "viewportWidth": 1366,
   "viewportHeight": 768,

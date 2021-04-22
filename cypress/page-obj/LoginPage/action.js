@@ -14,44 +14,22 @@ export class LoginAction extends BaseAction {
       .visit('/');
     this
       .verifyElementExist(
-        LoginLocators.SYMPLE_LOGO
+        LoginLocators.MABLE_LOGO
       )
-      .verifyElementContainsText(
-        LoginLocators.LOGIN_BTN,
-        'Log in'
-      )
-      .closeLaunchPopupIfExist()
+      .verifyTextVisible('Login')
+      .verifyTextVisible('Login to manage your Mable account.')
     return this;
   }
 
-  /**
-   * @method closeLaunchPopupIfExist
-   */
-  closeLaunchPopupIfExist() {
-    this
-      .log('Close the launch popup if exist')
-      .checkElementIfExist(LoginLocators.LAUNCH_POPUP)
-      .then(res => {
-        if(res) {
-          this.clickElement(LoginLocators.CLOSE_LAUCH_ICON)
-        }
-      })
-
-    return this;
-
-  }
   
   /**
    * @method verifyLoginAdminSuccessfully
    */
-  verifyLoginAdminSuccessfully(username) {
+  verifyLoginSuccessfully(username) {
+    cy.wait('@POST_/api/ionic_authentication/sign_in');
     this
-      .verifyCurrentURL('/admin')
-
-    cy.wait('@GET_api/chart/job')
-
-    this
-      .getText(LoginLocators.USERNAME_DROPDOWN)
+      .verifyCurrentURL('/dashboard')
+      .getText(LoginLocators.PROFILE_NAME)
       .then(text => {
         expect(text.toLowerCase()).to.equal(username.toLowerCase());
       })
